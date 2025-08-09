@@ -1,0 +1,53 @@
+<div class="top-bar">
+  <header>
+    <div th:if="${username == 'anonymous'}">
+      <a href="/login" class="login-link">Login</a>
+    </div>
+    <div th:if="${username != 'anonymous'}">
+      <a href="/logout" class="logout-link">Logout</a>
+    </div>
+    <div class="black-bar"></div>
+  </header>
+</div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta name="loggedInUser" th:content="${username}" />
+  </head>
+  <body onload="loadEntries()">
+    <div class="container">
+      <h1>Confirmation</h1>
+      <div id="last-entry">
+        <!-- Last submitted entry info will be displayed here -->
+      </div>
+      <h2>Previous Entries</h2>
+      <table border="1" id="entries-table">
+        <thead>
+          <tr>
+            <th data-sort-key="lastName" style="cursor: pointer">
+              Name <span class="sort-arrow"></span>
+            </th>
+            <th data-sort-key="age" style="cursor: pointer">
+              Age <span class="sort-arrow"></span>
+            </th>
+            <th data-sort-key="title" style="cursor: pointer">
+              Title <span class="sort-arrow"></span>
+            </th>
+            <th data-sort-key="hometown" style="cursor: pointer">
+              Hometown <span class="sort-arrow"></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Previous entries will be inserted here by JS -->
+        </tbody>
+      </table>
+      <a href="/form">Submit Another Entry</a>
+    </div>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
+<div class="bottom-bar"></div>
